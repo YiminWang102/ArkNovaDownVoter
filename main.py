@@ -17,7 +17,7 @@ END_RANK = 5010
 # True if you want to un thumbs down people above the threshold 
 UN_THUMBS_DOWN = False
 
-# Delay in between 
+# Delay in between network calls
 DELAY = 0.01
 
 # POPULATE COOKIES
