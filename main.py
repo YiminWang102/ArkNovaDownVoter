@@ -11,8 +11,8 @@ USE_ARENA_RANKING = False
 
 # Rank range (0 - 4000 if arena ranking to cover elite and gold, or 0 - 8000 to cover silver and bronze too)
 # (2000 - 30000 if elo ranking to cover 450 - 100 ELO)
-START_RANK = 5000
-END_RANK = 5010
+START_RANK = 1000
+END_RANK = 30000
 
 # True if you want to un thumbs down people above the threshold 
 UN_THUMBS_DOWN = False
@@ -138,16 +138,6 @@ def get_player_ark_nova_elo(player_id):
 
 
 def change_player_reputation(player_id, reputation):
-    cookies = {
-        'PHPSESSID': 'utdl1dp5555cq6r6vqujkdul3n',
-        'TournoiEnLigne_sso_user': 'DugongEnjoyer%243%24ywang5991%40gmail.com',
-        'TournoiEnLigne_sso_id': '546bd584e004f6aa9663b5df57b4622b',
-        'TournoiEnLigneidt': 'm7mTz6TnY10qO4e',
-        'TournoiEnLignetkt': 'hf5Qvgk9TJHGw9IuiNTH1YjleCIlpSA0Ycs2hpO0YbWJ3ACT6ax9QjRQf8HmnmeP',
-        'TournoiEnLigneid': '8E3MnWfUDdGgvpk',
-        'TournoiEnLignetk': '2gSArWUIuepL7sS2YtJSqkIfT7fyn0ySUMnHD4Z41DA4pbgr9vOM9PJpWjys57VH',
-    }
-
     headers = ELO_RANKING_HEADERS
 
     params = {
