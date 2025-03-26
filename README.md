@@ -10,9 +10,8 @@ How to run the script:
     - visit someone's profile
     - open developer console
     - go to network tab
-    - thumbs down someone
-    - inspect the network call made
-    - right click on network call -> copy -> copy as cURL
+    - refresh page
+    - right click on first network call -> copy -> copy as cURL
     - paste into curlconverter.com (make sure python is selected)
     - copy the cookies and the headers to the file
 7. Navigate to directory of file in terminal
