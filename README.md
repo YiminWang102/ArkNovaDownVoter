@@ -19,3 +19,7 @@ How to run the script:
 8. Run file (py main.py)
 9. ???
 10. Profit
+
+Link to video tutorials:
+Part 1: https://youtu.be/P7IiFnhMNaY
+Part 2: https://youtu.be/umDTin7PPxU
