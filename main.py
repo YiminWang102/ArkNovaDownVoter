@@ -17,6 +17,13 @@ END_RANK = 30000
 # True if you want to un thumbs down people above the threshold 
 UN_THUMBS_DOWN = False
 
+# True if you dont want to thumbs down your low ELO friends
+DONT_THUMBS_DOWN_FRIENDS = True
+
+# Provide a dict of friends in the form of { player_id: 0/1 }
+# The 0s/1s don't matter, just copy and paste from the "friends" part of the data response
+FRIENDS = {}
+
 # Delay in between network calls
 DELAY = 0.01
 
@@ -137,7 +144,7 @@ def get_player_ark_nova_elo(player_id):
     eloParser.feed(response.text)
 
 
-def change_player_reputation(player_id, reputation):
+def change_player_reputation(player_id, reputation, friends = FRIENDS):
     headers = ELO_RANKING_HEADERS
 
     params = {
@@ -150,6 +157,12 @@ def change_player_reputation(player_id, reputation):
     base_url = 'https://boardgamearena.com/table/table/changeReputation.html'
 
     print("changing player reputation", player_id, reputation)
+
+    if DONT_THUMBS_DOWN_FRIENDS:
+        if str(player_id) in friends:
+            print("player is a friend, ignoring reputation change")
+            return
+
     response = requests.get(base_url, params=params, headers=headers, cookies=cookies)
     if response.status_code == 200:
         print("Request successful!")
@@ -172,8 +185,6 @@ def process_players_by_elo_rating():
                     print(f"player elo above threshold, un thumbs down incoming")
                     change_player_reputation(player_id, 0)
                     time.sleep(DELAY)
-
-
 
 def process_players_by_arena_rating():
     for start in range(START_RANK, END_RANK, 10):
@@ -203,4 +214,5 @@ def main():
     else:
         process_players_by_elo_rating()
 
-main()
+# main()
+change_player_reputation(95821820, 1)
