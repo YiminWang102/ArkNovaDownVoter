@@ -214,5 +214,4 @@ def main():
     else:
         process_players_by_elo_rating()
 
-# main()
-change_player_reputation(95821820, 1)
+main()
